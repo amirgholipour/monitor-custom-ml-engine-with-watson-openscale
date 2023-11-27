@@ -69,7 +69,8 @@ def wml_online(space_id, deployment_id):
         "url": "https://us-south.ml.cloud.ibm.com",
         'apikey': os.environ['APIKEY']}
     wml_client = APIClient(wml_credentials)
-
+    print(wml_client.version)
+    print(payload_scoring)
     wml_client.set.default_space(space_id)
 
     scoring_response = wml_client.deployments.score(
@@ -81,7 +82,7 @@ def wml_online(space_id, deployment_id):
     #     # auto payload logging
     #     payload_logging(wos_client, request.json, scoring_response["predictions"][0], os.environ['WOS_SUB_ID'])
 
-
+    print(scoring_response["predictions"][0])
     return jsonify(scoring_response["predictions"][0])
 
 
