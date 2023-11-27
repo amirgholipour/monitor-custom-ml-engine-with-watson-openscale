@@ -61,10 +61,14 @@ def wml_online(space_id, deployment_id):
         ]
     }
 
-    wml_client = APIClient(wml_credentials={
+    # wml_client = APIClient(wml_credentials={
+    #     "url": "https://us-south.ml.cloud.ibm.com",
+    #     'apikey': os.environ['APIKEY']}
+    # )
+    wml_credentials={
         "url": "https://us-south.ml.cloud.ibm.com",
         'apikey': os.environ['APIKEY']}
-    )
+    wml_client = APIClient(wml_credentials)
 
     wml_client.set.default_space(space_id)
 
